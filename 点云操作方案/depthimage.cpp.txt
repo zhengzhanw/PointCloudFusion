@@ -1,0 +1,203 @@
+#include <iostream>
+#include<opencv2\opencv.hpp>
+#include <opencv2\core\core.hpp>
+#include<fstream>
+#include<windows.h> 
+using namespace cv;
+using namespace std;
+void  main()
+{
+ 
+ 
+int ImageWidth = 512;
+int ImageHeight = 424;
+float  gradata[512 * 424];
+//int changeGradata[512 * 424];
+ 
+ 
+ifstream myFile;
+myFile.open("G://dat1.txt");
+int i = 0;
+if (myFile.is_open())
+{
+ 
+while (!myFile.eof())
+{
+ 
+for (; i <424 * 512;)
+{
+ 
+ 
+myFile >> gradata[i];
+ 
+i++;
+ 
+ 
+}
+if (i >= 424 * 512)
+break;
+ 
+}
+ 
+ 
+}
+myFile.close();
+/*for (int i = 0; i < 512 * 424; i++)
+{
+ 
+cout << gradata[i] << endl;
+ 
+ 
+ 
+ 
+ 
+}*/
+/*float t = 0;
+for (int i = 0; i < 424 * 512; i++)
+{
+ 
+ 
+if (t <= gradata[i])
+t = gradata[i];
+ 
+ 
+ 
+ 
+}
+cout << t << endl;*/
+//Mat  Gradshow(ImageHeight,ImageWidth,CV_8UC1,gradata);
+//Mat show = Gradshow.clone();
+//imshow("show Grad",show);
+//system("pause");
+//cout << show << endl;
+int gradatacount[8000];
+//int t = 0;
+for (int m = 0; m < 8000; m++)
+{
+ 
+gradatacount[m] = 0;
+ 
+ 
+ 
+ 
+ 
+}
+for (int i = 0; i < 512 * 424; i++)
+{
+ 
+ 
+int t = gradata[i];
+gradatacount[t]++;
+ 
+ 
+ 
+ 
+}
+int hist_height = 600;
+int hist_width = 800;
+Mat hist_image = Mat::zeros(hist_height, hist_width, CV_8UC1);
+for (int i = 0; i <8000; i++)
+{
+ 
+float intensity = gradatacount[i] / 100.0;
+line(hist_image, Point(i *0.1, hist_height - intensity), Point(i *0.1, hist_height), CV_RGB(255, 255, 255));
+ 
+ 
+ 
+ 
+ 
+}
+//Mat show = hist_image.clone();
+//int aa;
+//cin >> aa;
+imshow("hist Image", hist_image);
+int aa;
+cin >> aa;
+//system("pause");
+/*for (int j = 0; j < 8000; j++)
+{
+ 
+cout << gradatacount[j] << endl;
+//编程思路 先获取一帧的深度图的图像数据
+//保存到TXT文件按中
+//读取TXT文件到相应的矩阵中看效果
+//然后进行相应的梯度图的获取
+//然后进行直方图的统计和选取阈值
+//将阈值范围内的梯度图可视化出来
+ 
+ 
+ 
+ 
+ 
+}*/
+ 
+ 
+ 
+ 
+ 
+/*for (int i = 0; i < 512 * 424; i++)
+{
+ 
+ 
+cout << gradata[i] << endl;
+ 
+ 
+ 
+ 
+}*/
+//Mat showgradImage(ImageHeight, ImageWidth, CV_8UC1);
+//Mat grad_image = Mat::zeros(ImageHeight, ImageWidth, CV_8UC1);
+ 
+ 
+ 
+//Mat show = ImageGrad.clone();
+//imshow("ImageGrad", show);
+/*for (int i = 0; i < 512 * 424; i++)
+{
+ 
+cout << gradata[i] << endl;
+ 
+ 
+ 
+ 
+ 
+}*/
+/*FILE *file;
+errno_t err;
+ 
+if ((err = fopen_s(&file, "G:\\dat3.txt", "a+")) != 0)
+ 
+{
+ 
+printf("can not open the file");
+//  return;
+ 
+ 
+ 
+}
+ 
+for (int dIndex = 0; dIndex <512*424; ++dIndex)
+{
+ 
+int p =(int)gradata[dIndex];
+ 
+fprintf(file, "   %d",p);
+fprintf(file, "\n");
+ 
+ 
+ 
+ 
+ 
+}
+fclose(file);
+*/
+ 
+ 
+ 
+ 
+ 
+ 
+//return 0;
+ 
+ 
+}
