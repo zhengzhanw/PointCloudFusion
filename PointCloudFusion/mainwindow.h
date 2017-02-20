@@ -16,6 +16,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void readPCL(std::string pcd_Path);
+
 private slots:
     void on_readFile_action_triggered();
 

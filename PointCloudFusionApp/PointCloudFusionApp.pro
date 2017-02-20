@@ -28,6 +28,15 @@ OBJECTS_DIR = ../obj
 
 DEFINES += POINTCLOUDFUSIONAPP_LIBRARY
 
+message($$(WIN_SYS_LIB))
+
+LIBS += \
+    -L$$OUT_PWD/../lib \
+    -L$$(WIN_SYS_LIB)/Lib \
+
+LIBS += \
+    -lshell32 \
+
 SOURCES += \
     ReadFile.cpp
         
