@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,7 +14,7 @@ TEMPLATE = app
 CONFIG -= c++98
 CONFIG += c++11
 CONFIG -= debug_and_release
-
+CONFIG += gif
 macx{
     QMAKE_CXXFLAGS -= -stdlib=libc++
     QMAKE_CXXFLAGS += -stdlib=libstdc++
@@ -49,7 +49,6 @@ win32{
     }
 }
 
-#   添加PCL库文件
 INCLUDEPATH += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/OpenNI2/Include) \
     $$quote(E:/Program Files/PCL 1.8.0/include/pcl-1.8/pcl) \
     $$quote(E:/Program Files/PCL 1.8.0/include/pcl-1.8) \
@@ -74,6 +73,7 @@ INCLUDEPATH += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/OpenNI2/Include) \
 #LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Qhull\lib\
 
 #LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\VTK\lib
+LIBS += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/lib/*.lib)
 
 LIBS += \
     -L$$quote(E:/Program Files/PCL 1.8.0/lib) \
@@ -256,9 +256,6 @@ LIBS += -lpcl_common_debug \
 #        -lqhullstatic_p_d \
         -lOpenNI2 \
 
-} else {
-
-
 }
 
 
@@ -266,7 +263,7 @@ LIBS += -lpcl_common_debug \
 CONFIG(debug,debug|release){
     win32{
         LIBS += \
-        -lPointCloudFusionApp \
+            -lPointCloudFusionApp \
     }else:unix{
         macx{
             #macx
@@ -293,10 +290,12 @@ CONFIG(release,debug|release){
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-        zPCFWidget.cpp
+        zPCFWidget.cpp \
+    WaitDialog.cpp
 
 HEADERS  += mainwindow.h \
-        zPCFWidget.h
+        zPCFWidget.h \
+    WaitDialog.h
 
 FORMS    += mainwindow.ui
 

@@ -6,5 +6,8 @@
         <file>images/logout.png</file>
         <file>images/readFiles.png</file>
         <file>images/start.png</file>
+        <file>images/loading0.gif</file>
+        <file>images/loading1.gif</file>
+        <file>images/loading.gif</file>
     </qresource>
 </RCC>

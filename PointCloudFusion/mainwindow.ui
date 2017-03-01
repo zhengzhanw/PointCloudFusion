@@ -13,24 +13,7 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="zPCFWidget" name="centralWidget">
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>981</width>
-      <height>611</height>
-     </rect>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>981</width>
-      <height>16777215</height>
-     </size>
-    </property>
-   </widget>
-  </widget>
+  <widget class="QVTKWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
@@ -144,10 +127,9 @@
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
   <customwidget>
-   <class>zPCFWidget</class>
+   <class>QVTKWidget</class>
    <extends>QWidget</extends>
-   <header>zpcfwidget.h</header>
-   <container>1</container>
+   <header location="global">QVTKWidget.h</header>
   </customwidget>
  </customwidgets>
  <resources>
