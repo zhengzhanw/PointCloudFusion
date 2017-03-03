@@ -7,7 +7,7 @@
 // Visualization Toolkit (VTK)
 #include <vtkRenderWindow.h>
 #include "QVTKWidget.h"
-#include "WaitDialog.h"
+#include "zThread.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -23,20 +23,33 @@ MainWindow::~MainWindow()
 
 void MainWindow::readPCL(std::string pcd_Path)
 {
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>); // 创建点云（指针）
-//    WaitDialog wait;
-//    wait.open();
-    QLabel *label = new QLabel();
-    QMovie *movie = new QMovie(":/images/loading0.gif");
-    label->setMovie(movie);
-    movie->start();
-    label->show();
-    if (pcl::io::loadPCDFile<pcl::PointXYZ> (pcd_Path, *cloud) == -1) //* 读入PCD格式的文件，如果文件不存在，返回-1
-    {
-        PCL_ERROR ("Couldn't read file test_pcd.pcd \n"); //文件不存在时，返回错误，终止程序。
-        return ;
-    }
-    //wait.close();
+    pcl::PointCloud<pcl::PointXYZ>::Ptr tempcloud (new pcl::PointCloud<pcl::PointXYZ>); // 创建点云（指针）
+    cloud = tempcloud;
+    wait = new WaitDialog;
+    wait->setModal(true);
+    wait->show();
+//    QLabel *label = new QLabel();
+//    QMovie *movie = new QMovie(":/images/loading0.gif");
+//    label->setMovie(movie);
+//    movie->start();
+//    label->show();
+
+    //Set up the QVTK window
+    viewer.reset(new pcl::visualization::PCLVisualizer("viewer",false));
+    ui->centralWidget->SetRenderWindow(viewer->getRenderWindow());
+    viewer->setupInteractor(ui->centralWidget->GetInteractor(),ui->centralWidget->GetRenderWindow());
+    ui->centralWidget->update();
+
+    zThread *thread = new zThread(cloud,pcd_Path);
+    connect(thread,SIGNAL(finished()),this,SLOT(displayViewer()));
+    thread->run();
+}
+
+void MainWindow::displayViewer()
+{
+    wait->close();
+    delete wait;
+    wait = NULL;
     qDebug() << "Loaded "
             << cloud->width * cloud->height
             << " data points from test_file.pcd with the following fields: ";
@@ -49,16 +62,9 @@ void MainWindow::readPCL(std::string pcd_Path)
     //        pcl::visualization::CloudViewer viewer("Cloud Viewer1");
     //        viewer.showCloud(cloud);
 
-    //Set up the QVTK window
-    viewer.reset(new pcl::visualization::PCLVisualizer("viewer",false));
-    ui->centralWidget->SetRenderWindow(viewer->getRenderWindow());
-    viewer->setupInteractor(ui->centralWidget->GetInteractor(),ui->centralWidget->GetRenderWindow());
-    ui->centralWidget->update();
-
     viewer->addPointCloud(cloud,"cloud");
     viewer->resetCamera();
     ui->centralWidget->update();
-
 }
 
 void MainWindow::on_readFile_action_triggered()

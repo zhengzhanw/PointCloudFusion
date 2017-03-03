@@ -31,7 +31,7 @@ UI_DIR = ./ui
 win32{
     #win32
     INCLUDEPATH += ../ \
-#        "E:/Program Files/PCL 1.8.0/include" \
+#        "D:/PCL-1.8.0/include" \
 
     LIBS += \
         -L$$OUT_PWD/../lib \
@@ -49,39 +49,39 @@ win32{
     }
 }
 
-INCLUDEPATH += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/OpenNI2/Include) \
-    $$quote(E:/Program Files/PCL 1.8.0/include/pcl-1.8/pcl) \
-    $$quote(E:/Program Files/PCL 1.8.0/include/pcl-1.8) \
-    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/Boost/include/boost-1_59) \
-    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/Eigen/eigen3) \
-    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/FLANN/include) \
-    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/FLANN/include/flann) \
-    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/Qhull/include) \
-    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/include/vtk-7.0) \
+INCLUDEPATH += $$quote(D:/PCL-1.8.0/3rdParty/OpenNI2/Include) \
+    $$quote(D:/PCL-1.8.0/include/pcl-1.8/pcl) \
+    $$quote(D:/PCL-1.8.0/include/pcl-1.8) \
+    $$quote(D:/PCL-1.8.0/3rdParty/Boost/include/boost-1_59) \
+    $$quote(D:/PCL-1.8.0/3rdParty/Eigen/eigen3) \
+    $$quote(D:/PCL-1.8.0/3rdParty/FLANN/include) \
+    $$quote(D:/PCL-1.8.0/3rdParty/FLANN/include/flann) \
+    $$quote(D:/PCL-1.8.0/3rdParty/Qhull/include) \
+    $$quote(D:/PCL-1.8.0/3rdParty/VTK/include/vtk-7.0) \
 
 
 #LIBS += -L D:\OpenNI2\Lib\
 
-#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/lib\
+#LIBS += -L $$quote(D:/PCL-1.8.0/lib\
 
-#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Boost\lib\
+#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\Boost\lib\
 
-#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Eigen\eigen3\
+#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\Eigen\eigen3\
 
-#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\FLANN\lib\
+#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\FLANN\lib\
 
-#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Qhull\lib\
+#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\Qhull\lib\
 
-#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\VTK\lib
-LIBS += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/lib/*.lib)
+#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\VTK\lib
+LIBS += $$quote(D:/PCL-1.8.0/3rdParty/VTK/lib/*.lib)
 
 LIBS += \
-    -L$$quote(E:/Program Files/PCL 1.8.0/lib) \
-    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/Boost/lib) \
-    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/FLANN/lib) \
-    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/Qhull/lib) \
-    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/lib) \
-    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/OpenNI2/Lib) \
+    -L$$quote(D:/PCL-1.8.0/lib) \
+    -L$$quote(D:/PCL-1.8.0/3rdParty/Boost/lib) \
+    -L$$quote(D:/PCL-1.8.0/3rdParty/FLANN/lib) \
+    -L$$quote(D:/PCL-1.8.0/3rdParty/Qhull/lib) \
+    -L$$quote(D:/PCL-1.8.0/3rdParty/VTK/lib) \
+    -L$$quote(D:/PCL-1.8.0/3rdParty/OpenNI2/Lib) \
 
 CONFIG(debug,debug|release){
 
@@ -289,13 +289,15 @@ CONFIG(release,debug|release){
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-        zPCFWidget.cpp \
-    WaitDialog.cpp
+    mainwindow.cpp \
+    zPCFWidget.cpp \
+    WaitDialog.cpp \
+    zThread.cpp
 
 HEADERS  += mainwindow.h \
-        zPCFWidget.h \
-    WaitDialog.h
+    zPCFWidget.h \
+    WaitDialog.h \
+    zThread.h
 
 FORMS    += mainwindow.ui
 

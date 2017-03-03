@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "zPCFWidget.h"
+#include "WaitDialog.h"
 #include "PointCloudFusionApp/ReadFile.h"
 #include <pcl/io/pcd_io.h> //PCL的PCD格式文件的输入输出头文件
 #include <pcl/point_types.h> //PCL对各种格式的点的支持头文件
@@ -28,6 +29,7 @@ public:
     void readPCL(std::string pcd_Path);
 
 private slots:
+    void displayViewer();
     void on_readFile_action_triggered();
 
 protected:
@@ -36,7 +38,8 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-
+    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
+    WaitDialog *wait;
 //    zPCFWidget *pcfWidget;
 };
 
