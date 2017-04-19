@@ -42,7 +42,7 @@ void MainWindow::readPCL(std::string pcd_Path)
 
     zThread *thread = new zThread(cloud,pcd_Path);
     connect(thread,SIGNAL(finished()),this,SLOT(displayViewer()));
-    thread->run();
+    thread->start();
 }
 
 void MainWindow::displayViewer()

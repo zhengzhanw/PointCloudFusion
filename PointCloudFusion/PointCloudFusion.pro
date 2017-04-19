@@ -31,7 +31,7 @@ UI_DIR = ./ui
 win32{
     #win32
     INCLUDEPATH += ../ \
-#        "D:/PCL-1.8.0/include" \
+#        "E:/Program Files/PCL 1.8.0/include" \
 
     LIBS += \
         -L$$OUT_PWD/../lib \
@@ -49,39 +49,39 @@ win32{
     }
 }
 
-INCLUDEPATH += $$quote(D:/PCL-1.8.0/3rdParty/OpenNI2/Include) \
-    $$quote(D:/PCL-1.8.0/include/pcl-1.8/pcl) \
-    $$quote(D:/PCL-1.8.0/include/pcl-1.8) \
-    $$quote(D:/PCL-1.8.0/3rdParty/Boost/include/boost-1_59) \
-    $$quote(D:/PCL-1.8.0/3rdParty/Eigen/eigen3) \
-    $$quote(D:/PCL-1.8.0/3rdParty/FLANN/include) \
-    $$quote(D:/PCL-1.8.0/3rdParty/FLANN/include/flann) \
-    $$quote(D:/PCL-1.8.0/3rdParty/Qhull/include) \
-    $$quote(D:/PCL-1.8.0/3rdParty/VTK/include/vtk-7.0) \
+INCLUDEPATH += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/OpenNI2/Include) \
+    $$quote(E:/Program Files/PCL 1.8.0/include/pcl-1.8/pcl) \
+    $$quote(E:/Program Files/PCL 1.8.0/include/pcl-1.8) \
+    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/Boost/include/boost-1_59) \
+    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/Eigen/eigen3) \
+    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/FLANN/include) \
+    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/FLANN/include/flann) \
+    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/Qhull/include) \
+    $$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/include/vtk-7.0) \
 
 
 #LIBS += -L D:\OpenNI2\Lib\
 
-#LIBS += -L $$quote(D:/PCL-1.8.0/lib\
+#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/lib\
 
-#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\Boost\lib\
+#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Boost\lib\
 
-#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\Eigen\eigen3\
+#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Eigen\eigen3\
 
-#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\FLANN\lib\
+#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\FLANN\lib\
 
-#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\Qhull\lib\
+#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\Qhull\lib\
 
-#LIBS += -L $$quote(D:/PCL-1.8.0/3rdParty\VTK\lib
-LIBS += $$quote(D:/PCL-1.8.0/3rdParty/VTK/lib/*.lib)
+#LIBS += -L $$quote(E:/Program Files/PCL 1.8.0/3rdParty\VTK\lib
+LIBS += $$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/lib/*.lib)
 
 LIBS += \
-    -L$$quote(D:/PCL-1.8.0/lib) \
-    -L$$quote(D:/PCL-1.8.0/3rdParty/Boost/lib) \
-    -L$$quote(D:/PCL-1.8.0/3rdParty/FLANN/lib) \
-    -L$$quote(D:/PCL-1.8.0/3rdParty/Qhull/lib) \
-    -L$$quote(D:/PCL-1.8.0/3rdParty/VTK/lib) \
-    -L$$quote(D:/PCL-1.8.0/3rdParty/OpenNI2/Lib) \
+    -L$$quote(E:/Program Files/PCL 1.8.0/lib) \
+    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/Boost/lib) \
+    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/FLANN/lib) \
+    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/Qhull/lib) \
+    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/VTK/lib) \
+    -L$$quote(E:/Program Files/PCL 1.8.0/3rdParty/OpenNI2/Lib) \
 
 CONFIG(debug,debug|release){
 
@@ -103,42 +103,42 @@ LIBS += -lpcl_common_debug \
         -lpcl_surface_debug \
         -lpcl_tracking_debug \
         -lpcl_visualization_debug \
-#        -llibboost_atomic-vc120-mt-gd-1_57 \
-#        -llibboost_chrono-vc120-mt-gd-1_57 \
-#        -llibboost_container-vc120-mt-gd-1_57 \
-#        -llibboost_context-vc120-mt-gd-1_57 \
-#        -llibboost_coroutine-vc120-mt-gd-1_57 \
-#        -llibboost_date_time-vc120-mt-gd-1_57 \
-#        -llibboost_exception-vc120-mt-gd-1_57 \
-#        -llibboost_filesystem-vc120-mt-gd-1_57 \
-#        -llibboost_graph-vc120-mt-gd-1_57 \
-#        -llibboost_iostreams-vc120-mt-gd-1_57 \
-#        -llibboost_locale-vc120-mt-gd-1_57 \
-#        -llibboost_log-vc120-mt-gd-1_57 \
-#        -llibboost_log_setup-vc120-mt-gd-1_57 \
-#        -llibboost_math_c99-vc120-mt-gd-1_57 \
-#        -llibboost_math_c99f-vc120-mt-gd-1_57 \
-#        -llibboost_math_c99l-vc120-mt-gd-1_57 \
-#        -llibboost_math_tr1-vc120-mt-gd-1_57 \
-#        -llibboost_math_tr1f-vc120-mt-gd-1_57 \
-#        -llibboost_math_tr1l-vc120-mt-gd-1_57 \
-#        -llibboost_mpi-vc120-mt-gd-1_57 \
-#        -llibboost_prg_exec_monitor-vc120-mt-gd-1_57 \
-#        -llibboost_program_options-vc120-mt-gd-1_57 \
-#        -llibboost_random-vc120-mt-gd-1_57 \
-#        -llibboost_regex-vc120-mt-gd-1_57 \
-#        -llibboost_serialization-vc120-mt-gd-1_57 \
-#        -llibboost_signals-vc120-mt-gd-1_57 \
-#        -llibboost_system-vc120-mt-gd-1_57 \
-#        -llibboost_test_exec_monitor-vc120-mt-gd-1_57 \
-#        -llibboost_thread-vc120-mt-gd-1_57 \
-#        -llibboost_thread-vc120-mt-gd-1_59 \
-#        -llibboost_timer-vc120-mt-gd-1_57 \
-#        -llibboost_unit_test_framework-vc120-mt-gd-1_57 \
-#        -llibboost_wave-vc120-mt-gd-1_57 \
-#        -llibboost_wserialization-vc120-mt-gd-1_57 \
+        -llibboost_atomic-vc120-mt-gd-1_59 \
+        -llibboost_chrono-vc120-mt-gd-1_59 \
+        -llibboost_container-vc120-mt-gd-1_59 \
+        -llibboost_context-vc120-mt-gd-1_59 \
+        -llibboost_coroutine-vc120-mt-gd-1_59 \
+        -llibboost_date_time-vc120-mt-gd-1_59 \
+        -llibboost_exception-vc120-mt-gd-1_59 \
+        -llibboost_filesystem-vc120-mt-gd-1_59 \
+        -llibboost_graph-vc120-mt-gd-1_59 \
+        -llibboost_iostreams-vc120-mt-gd-1_59 \
+        -llibboost_locale-vc120-mt-gd-1_59 \
+        -llibboost_log-vc120-mt-gd-1_59 \
+        -llibboost_log_setup-vc120-mt-gd-1_59 \
+        -llibboost_math_c99-vc120-mt-gd-1_59 \
+        -llibboost_math_c99f-vc120-mt-gd-1_59 \
+        -llibboost_math_c99l-vc120-mt-gd-1_59 \
+        -llibboost_math_tr1-vc120-mt-gd-1_59 \
+        -llibboost_math_tr1f-vc120-mt-gd-1_59 \
+        -llibboost_math_tr1l-vc120-mt-gd-1_59 \
+        -llibboost_mpi-vc120-mt-gd-1_59 \
+        -llibboost_prg_exec_monitor-vc120-mt-gd-1_59 \
+        -llibboost_program_options-vc120-mt-gd-1_59 \
+        -llibboost_random-vc120-mt-gd-1_59 \
+        -llibboost_regex-vc120-mt-gd-1_59 \
+        -llibboost_serialization-vc120-mt-gd-1_59 \
+        -llibboost_signals-vc120-mt-gd-1_59 \
+        -llibboost_system-vc120-mt-gd-1_59 \
+        -llibboost_test_exec_monitor-vc120-mt-gd-1_59 \
+        -llibboost_thread-vc120-mt-gd-1_59 \
+        -llibboost_thread-vc120-mt-gd-1_59 \
+        -llibboost_timer-vc120-mt-gd-1_59 \
+        -llibboost_unit_test_framework-vc120-mt-gd-1_59 \
+        -llibboost_wave-vc120-mt-gd-1_59 \
+        -llibboost_wserialization-vc120-mt-gd-1_59 \
         -lflann_cpp_s-gd \
-#        -lqhullstatic_d \
+        -lqhullstatic-gd \
 #        -lvtkalglib-6.2-gd \
 #        -lvtkChartsCore-6.2-gd \
 #        -lvtkCommonColor-6.2-gd \
@@ -248,12 +248,12 @@ LIBS += -lpcl_common_debug \
 #        -lvtkViewsCore-6.2-gd \
 #        -lvtkViewsInfovis-6.2-gd \
 #        -lvtkzlib-6.2-gd \
-#        -lflann_s-gd \
-#        -lflann-gd \
-#        -lqhull_d \
-#        -lqhull_p_d \
-#        -lqhullcpp_d \
-#        -lqhullstatic_p_d \
+        -lflann_s-gd \
+        -lflann-gd \
+        -lqhull-gd \
+        -lqhull_p-gd \
+        -lqhullcpp-gd \
+        -lqhullstatic_r-gd \
         -lOpenNI2 \
 
 }
@@ -264,6 +264,7 @@ CONFIG(debug,debug|release){
     win32{
         LIBS += \
             -lPointCloudFusionApp \
+            -lshell32 \
     }else:unix{
         macx{
             #macx
