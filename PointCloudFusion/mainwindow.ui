@@ -6,20 +6,34 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1152</width>
-    <height>714</height>
+    <width>1189</width>
+    <height>687</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QVTKWidget" name="centralWidget"/>
+  <widget class="QVTKWidget" name="centralWidget">
+   <widget class="QVTKWidget" name="subWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>980</x>
+      <y>420</y>
+      <width>211</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>OpenHandCursor</cursorShape>
+    </property>
+   </widget>
+  </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1152</width>
+     <width>1189</width>
      <height>26</height>
     </rect>
    </property>
@@ -36,6 +50,7 @@
      <string>查看</string>
     </property>
     <addaction name="fullScreen_action"/>
+    <addaction name="delete_action"/>
    </widget>
    <widget class="QMenu" name="menu_3">
     <property name="title">
@@ -65,6 +80,8 @@
    <addaction name="exportFile_action"/>
    <addaction name="separator"/>
    <addaction name="execute_action"/>
+   <addaction name="separator"/>
+   <addaction name="delete_action"/>
    <addaction name="separator"/>
    <addaction name="about_action"/>
   </widget>
@@ -121,6 +138,15 @@
    </property>
    <property name="text">
     <string>信息详情</string>
+   </property>
+  </action>
+  <action name="delete_action">
+   <property name="icon">
+    <iconset resource="res.qrc">
+     <normaloff>:/images/delete.png</normaloff>:/images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>清空</string>
    </property>
   </action>
  </widget>

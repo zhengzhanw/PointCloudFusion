@@ -293,12 +293,14 @@ SOURCES += main.cpp\
     mainwindow.cpp \
     zPCFWidget.cpp \
     WaitDialog.cpp \
-    zThread.cpp
+    zThread.cpp \
+    ICPBlend.cpp
 
 HEADERS  += mainwindow.h \
     zPCFWidget.h \
     WaitDialog.h \
-    zThread.h
+    zThread.h \
+    ICPBlend.h
 
 FORMS    += mainwindow.ui
 

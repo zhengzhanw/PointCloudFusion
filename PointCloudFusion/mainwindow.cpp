@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <iostream> //标准输入输出流
+#include <QString>
 
 // Visualization Toolkit (VTK)
 #include <vtkRenderWindow.h>
@@ -11,14 +12,21 @@
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    fileName("")
 {
     ui->setupUi(this);
+    //Set up the QVTK window
+    viewer.reset(new pcl::visualization::PCLVisualizer("viewer",false));
+    ui->centralWidget->SetRenderWindow(viewer->getRenderWindow());
+    viewer->setupInteractor(ui->centralWidget->GetInteractor(),ui->centralWidget->GetRenderWindow());
+//    ui->centralWidget->update();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+
 }
 
 void MainWindow::readPCL(std::string pcd_Path)
@@ -34,13 +42,7 @@ void MainWindow::readPCL(std::string pcd_Path)
 //    movie->start();
 //    label->show();
 
-    //Set up the QVTK window
-    viewer.reset(new pcl::visualization::PCLVisualizer("viewer",false));
-    ui->centralWidget->SetRenderWindow(viewer->getRenderWindow());
-    viewer->setupInteractor(ui->centralWidget->GetInteractor(),ui->centralWidget->GetRenderWindow());
-    ui->centralWidget->update();
-
-    zThread *thread = new zThread(cloud,pcd_Path);
+    zThread *thread = new zThread(cloud,pcd_Path,zThread::READ);
     connect(thread,SIGNAL(finished()),this,SLOT(displayViewer()));
     thread->start();
 }
@@ -62,7 +64,7 @@ void MainWindow::displayViewer()
     //        pcl::visualization::CloudViewer viewer("Cloud Viewer1");
     //        viewer.showCloud(cloud);
 
-    viewer->addPointCloud(cloud,"cloud");
+    viewer->addPointCloud(cloud,fileName);
     viewer->resetCamera();
     ui->centralWidget->update();
 }
@@ -88,6 +90,16 @@ void MainWindow::on_readFile_action_triggered()
 //                readfile.close();
 //            }
 //        }
-        readPCL(filePath.at(0).toStdString());
+        QString tempFilePath = filePath.at(0);
+        readPCL(tempFilePath.toStdString());
+        fileName = tempFilePath.mid(tempFilePath.lastIndexOf('/')+1,tempFilePath.lastIndexOf('.')-tempFilePath.lastIndexOf('/')-1).toStdString();
+        qDebug()<<QString::fromStdString(fileName);
     }
+}
+
+void MainWindow::on_delete_action_triggered()
+{
+    viewer->removeAllPointClouds();
+    viewer->resetCamera();
+    ui->centralWidget->update();
 }

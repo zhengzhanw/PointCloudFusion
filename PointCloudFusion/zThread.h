@@ -10,12 +10,17 @@
 class zThread : public QThread
 {
     Q_OBJECT
+
 public:
-    explicit zThread(pcl::PointCloud<pcl::PointXYZ>::Ptr p_cloud,std::string p_Path,QThread *parent = NULL);
+    enum IOType{READ,WRITE};
+
+public:
+    explicit zThread(pcl::PointCloud<pcl::PointXYZ>::Ptr p_cloud,std::string p_Path,IOType p_type ,QThread *parent = NULL);
     virtual void run() override;
 private:
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud;
     std::string pcd_Path;
+    zThread::IOType type;
 };
 
 #endif // ZTHREAD_H
