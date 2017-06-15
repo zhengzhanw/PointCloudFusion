@@ -10,5 +10,6 @@
         <file>images/loading1.gif</file>
         <file>images/loading.gif</file>
         <file>images/delete.png</file>
+        <file>images/mulReadFile.png</file>
     </qresource>
 </RCC>

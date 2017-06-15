@@ -342,6 +342,14 @@ CONFIG(release,debug|release){
 }
 
 
+
+
+
+
+
+
+
+
 SOURCES += main.cpp\
     mainwindow.cpp \
     zPCFWidget.cpp \
